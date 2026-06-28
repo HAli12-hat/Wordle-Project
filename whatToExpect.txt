@@ -54,3 +54,10 @@ So, user stories:
 - As a player, I want to see win message when I get the word right.
 - As a player, I want to see a loss message when I exhaust all my attempts.
 - As a player, I want to reset the game and go again.
+
+Wireframe:
+- Top of the page, heading that reads: 'Wordle".
+- Under title: message for instructions, wins, or losses.
+- Center: 6 rows, 5 boxes in each row.
+- Under the board: input area or onscreen keyboard.
+- Bottom: Reset button.
