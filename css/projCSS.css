@@ -56,7 +56,10 @@ h1{
 }
 
 #reset-button {
+  background-color: #3a3a3c;
   border-radius: 5px;
   padding: 12px;
   font-size: 16px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }

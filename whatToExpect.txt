@@ -58,6 +58,6 @@ So, user stories:
 Wireframe:
 - Top of the page, heading that reads: 'Wordle".
 - Under title: message for instructions, wins, or losses.
-- Center: 6 rows, 5 boxes in each row.
+- Center: 6 rows, 5 boxes in each row. Will use a grid display method for this
 - Under the board: input area or onscreen keyboard.
 - Bottom: Reset button.
