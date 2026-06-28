@@ -14,7 +14,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
 
 }
 
@@ -30,7 +30,8 @@ h1{
 
 #message {
   margin: 0;
-  /* height: 24px; */
+  height: 24px;
+  /* adding height to this paragraph so that when the message changes whether to announce winning or losing the board never moves up or down */
   font-size: 18px;
 }
 
