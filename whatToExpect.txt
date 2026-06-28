@@ -1,0 +1,56 @@
+Chosen game: Wordle
+
+Context:
+The player has to guess a five letter word, the player has 6 attempts. After every guess, this is what happens to each letter:
+- Turns the box green if the letter is correct & is in the correct position of the word.
+- Yellow if the letter is in the word but is in the wrong spot.
+- Gray if the letter isn't in the word at all.
+
+Possible variables to include:
+- answer: stores the words.
+- wordList: array of possible words.
+- currentGuess: stores letters currently typed.
+- currentRow: tracks which attempt the player is on, being which row.
+- maxGuesses: stores max amount of guesses, being 6.
+- gameOver: tracks whether the game has ended or not.
+boxSquare: selected HTML elements for the game boxes.
+- msgEl: selected element to display win/loss message.
+
+Possible functions:
+- beginGame(): selects random word from the array of stored words, and prepares game.
+- keyPress(): detects when a letter is typed.
+- deleteLetter(): removes last typed letter.
+- submitGuess(): checks if guess has 5 letters, then compares to answer.
+- checkGuess(): compares all guessed letters against the correct word.
+- updateBoard(): change boxes color depending on the word entered.
+- checkWin(): check if guess matches the correct word.
+- checkLoss(): check if all 6 attempts have been used.
+- resetGame(): clear board and begin a new game:
+
+Basically:
+Create 6 rows of 5 boxes in each row.
+Have an array of possible 5 letter words.
+Select one random word from wordlist as the answer.
+Set gameOver to false when starting.
+
+when player types a letter, make sure the game isn't over.
+check that the current guess has less than 5 letters.
+Add letters to current guess.
+
+when players presses backspace, remove last letter from the current guess.
+
+when player submits guess, check if guess has 5 letters, if not, show a message asking for a 5 letter word, if yes, compare guess with answer.
+
+after checking guess, if its equal to answer, show the win message and end the game.
+if guess is wrong and still has attempts, move to next row.
+if players uses all 6 attempts without guessing correctly, show losing message and reveal the word.
+
+
+So, user stories:
+- As a player, I want to type letters into the boxes.
+- As a player, I want to delete a letter when I want.
+- As a player, I want to submit my guess.
+- As a player, I want feedback on guess to show using colors to know my results so far.
+- As a player, I want to see win message when I get the word right.
+- As a player, I want to see a loss message when I exhaust all my attempts.
+- As a player, I want to reset the game and go again.
