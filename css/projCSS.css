@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    background-color: #121214;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+}
+
+h1{
+    margin: 0;
+    font-size: 42px;
+}
+
+.instructions {
+  margin: 0;
+  font-size: 16px;
+}
+
+#message {
+  margin: 0;
+  /* height: 24px; */
+  font-size: 18px;
+}
+
+#board{
+    display: grid;
+    /* grid makes it easier to control columns and row together */
+    grid-template-columns: repeat(5, 60px); 
+    /* create 5 columns, with each column being 60px wide, repeat is used as a shortcut */
+    gap: 8px;
+
+}
+
+.tile{
+    width: 60px;
+    height: 60px;
+    border: 2px solid #3a3a3c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* centering the letters both horizontally and vertically */
+    font-size: 32px;;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#reset-button {
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 16px;
+}
