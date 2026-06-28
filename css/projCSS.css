@@ -37,7 +37,7 @@ h1{
 
 #board{
     display: grid;
-    /* grid makes it easier to control columns and row together */
+    /* grid makes it easier to control columns and row together, better to use in this case than flexbox from what I have found*/
     grid-template-columns: repeat(5, 60px); 
     /* create 5 columns, with each column being 60px wide, repeat is used as a shortcut */
     gap: 8px;
