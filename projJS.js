@@ -1,1 +1,4 @@
-console.log('testing my shi')
+const wordList = 
+[
+    'APPLE', 'PLANT', 'BRAIN', 'HUMID'
+]
