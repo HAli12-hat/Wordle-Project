@@ -57,13 +57,25 @@ function addLetter(pressedKey){
         console.log(currentGuess)
     }
 
+
+    function checkGuess(){
+        for (let i = 0; i < currentGuess.length; i++) {
+        if (currentGuess[i] === answer[i]) {
+            const tileIndex = currentRow * 5 + i
+            tiles[tileIndex].classList.add('correctColor')
+        }
+    }
+    }
     function submitGuess(){
+        checkGuess()
         console.log(currentGuess)
         currentRow++
         console.log(`current row should be: ${currentRow}`)
         console.log(`current guess should be: ${currentGuess}`)
         currentGuess = ''
     }
+
+    
     
 
     
