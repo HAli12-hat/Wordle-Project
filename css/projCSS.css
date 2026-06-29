@@ -65,6 +65,13 @@ h1{
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.correctColor{
+.correct-color{
   background-color: rgb(24, 145, 24);
+  border-color: rgb(24, 145, 24);
+ 
+}
+
+.wrong-color{
+  background-color: gray;
+  border-color: gray;
 }

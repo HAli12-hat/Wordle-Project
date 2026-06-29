@@ -62,7 +62,11 @@ function addLetter(pressedKey){
         for (let i = 0; i < currentGuess.length; i++) {
         if (currentGuess[i] === answer[i]) {
             const tileIndex = currentRow * 5 + i
-            tiles[tileIndex].classList.add('correctColor')
+            tiles[tileIndex].classList.add('correct-color')
+        }
+        else if(answer.includes(currentGuess[i]) !== true){
+            const tileIndex = currentRow * 5 + i
+            tiles[tileIndex].classList.add('wrong-color')
         }
     }
     }
