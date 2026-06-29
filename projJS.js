@@ -27,7 +27,10 @@ document.addEventListener('keydown', function(event){
         rmvLetter()
     }
 
-    if(key === 'ENTER' && currentGuess.length === 5){}
+    if(key === 'ENTER' && currentGuess.length === 5 && gameOver === false) {
+        submitGuess()
+        
+    }
 
 
 })
@@ -53,6 +56,14 @@ function addLetter(pressedKey){
         currentGuess = currentGuess.substring(0, currentGuess.length -1)
         console.log(currentGuess)
     }
+
+    function submitGuess(){
+        console.log(currentGuess)
+        currentRow++
+        console.log(`current row should be: ${currentRow}`)
+        console.log(`current guess should be: ${currentGuess}`)
+        currentGuess = ''
+    }
     
 
     
@@ -64,7 +75,17 @@ function addLetter(pressedKey){
     // //    add in the next empty tile the pressed key, and update the current guess to have the pressed key at the end 
     //    console.log(currentGuess)
         
-    // } backup code 
+    // }
+    // 
+    //  if(key === 'ENTER' && currentGuess.length === 5 && gameOver === false) {
+        // console.log(currentGuess)
+        // currentRow++
+        // console.log(`current row should be: ${currentRow}`)
+        // console.log(`current guess should be: ${currentGuess}`)
+        // currentGuess = ''
+               
+    // }
+//  backup code 
 
 
 
