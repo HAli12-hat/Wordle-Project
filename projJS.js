@@ -5,8 +5,11 @@ const wordList =
 
 const randIndex = Math.floor(Math.random() * wordList.length)
 
-const randWord = wordList[randIndex]
+let answer = wordList[randIndex]
 
+let currentGuess = ''
+let currentRow = 0
+let gameOver = false
 
-console.log(randWord)
+console.log(gameOver)
 
