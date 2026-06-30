@@ -17,12 +17,15 @@ const msg = document.querySelector('#message')
 const tiles = document.querySelectorAll('.tile')
 const rstBtn = document.querySelector('#reset-button')
 
+showAttempt()
+
 document.addEventListener('keydown', function(event){
    const key = event.key.toUpperCase() 
 
     if(alphabet.includes(key) && currentGuess.length < 5 && gameOver === false){
-        msg.textContent = 'Game messages will appear here!'
-    addLetter(key)
+        showAttempt()
+        addLetter(key)
+    
     }
    
 
@@ -33,6 +36,7 @@ document.addEventListener('keydown', function(event){
     if(key === 'ENTER' && currentGuess.length === 5 && gameOver === false) {
         // msg.textContent = 'Game messages will appear here!'
         submitGuess()
+        showAttempt()
         
     }
     else if(key === 'ENTER' && currentGuess.length < 5 && gameOver === false){
@@ -44,8 +48,8 @@ document.addEventListener('keydown', function(event){
 })
 
  rstBtn.addEventListener('click', function(){
-    msg.textContent = 'Game messages will appear here!'
     currentRow = 0
+    showAttempt()
     currentGuess = ''
     randIndex = Math.floor(Math.random() * wordList.length)
     answer = wordList[randIndex] 
@@ -64,6 +68,16 @@ document.addEventListener('keydown', function(event){
 // for the checkGuess() function, a const is declared that takes a copy of the answer and splits its string into an array where each letter is an array item, this is done so later it gets checked with whatever the user types in. It loops twice, first loop: loop through guess indices and check if each index matches answer indices, if yes, color green. Then, mark each correct letter empty in the copy array so it is never used again.
 
 // Second loop: check if guessed letters aren't the same as the answer's, then create a constant that goes through the array of the answer, and look for an unused matching letter. IndexOf() returns -1 if the item isnt there, but if it is there (returns anything but -1), then color it yellow then replace the copy of the answer with an empty string so it is never used again. Else, color it gray.
+
+function showAttempt(){
+    const attemptsLeft = 6 - currentRow
+    if(attemptsLeft === 1){
+        msg.textContent = `You have ${attemptsLeft} attempt left. Last Chance.`
+    }
+    else{
+    msg.textContent = `You have ${attemptsLeft} attempts left.`
+    }
+}
 
 function addLetter(pressedKey){
       
@@ -132,6 +146,7 @@ function addLetter(pressedKey){
         }
         else{
         currentRow++
+        showAttempt()
         console.log(`current row should be: ${currentRow}`)
         console.log(`current guess should be: ${currentGuess}`)
         currentGuess = ''
