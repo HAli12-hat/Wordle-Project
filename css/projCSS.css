@@ -67,11 +67,16 @@ h1{
 
 .correct-color{
   background-color: rgb(24, 145, 24);
-  border-color: rgb(24, 145, 24);
+  border-color: rgb(0, 108, 0);
  
 }
 
 .wrong-color{
   background-color: gray;
-  border-color: gray;
+  border-color: rgb(84, 84, 84);
+}
+
+.almost-color{
+  background-color: rgb(174, 174, 0);
+  border-color: rgb(255, 255, 72);
 }

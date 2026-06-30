@@ -68,6 +68,10 @@ function addLetter(pressedKey){
             const tileIndex = currentRow * 5 + i
             tiles[tileIndex].classList.add('wrong-color')
         }
+        else{
+            const tileIndex = currentRow * 5 + i
+            tiles[tileIndex].classList.add('almost-color')
+        }
     }
     }
     function submitGuess(){
