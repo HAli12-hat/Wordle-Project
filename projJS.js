@@ -59,7 +59,7 @@ document.addEventListener('keydown', function(event){
     })
     showAttempt()
     rstBtn.blur()
-    // blur removes the focus on the reset button so everytime user presses Enter the reset button doesn't keep getting activated. Without it, reset button stays selected. The opposed of .blur() is .focus(). 
+    // blur removes the focus on the reset button so everytime user presses Enter the reset button doesn't keep getting activated. Without it, reset button stays selected. The opposed of .blur() is .focus().
 })
 
 // The first if statement in this function listens to when the user inputs a key that is only an alphabet, it checks if its an alphabet or not through the alphabet constant I made. Then it checks if the tile has less than 5 letters and if the game is still going, if so, then add any letter the user inputs into the next tile.
