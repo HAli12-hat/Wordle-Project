@@ -1,6 +1,6 @@
 const wordList = 
 [
-    'PLANT'
+    'PLANT', 'APPLE'
 ]
 
 const randIndex = Math.floor(Math.random() * wordList.length)
@@ -13,6 +13,7 @@ let currentGuess = ''
 let currentRow = 0
 let gameOver = false
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+const msg = document.querySelector('#message')
 const tiles = document.querySelectorAll('.tile')
 
 document.addEventListener('keydown', function(event){
@@ -98,11 +99,17 @@ function addLetter(pressedKey){
     
     function submitGuess(){
         checkGuess()
+        if (currentGuess === answer){
+            msg.textContent = 'You Win!'
+            gameOver = true
+        }
+        else{
         console.log(currentGuess)
         currentRow++
         console.log(`current row should be: ${currentRow}`)
         console.log(`current guess should be: ${currentGuess}`)
         currentGuess = ''
+        }
     }
 
 
