@@ -1,6 +1,6 @@
 const wordList = 
 [
-    'PLANT', 'APPLE'
+    'PLANT'
 ]
 
 const randIndex = Math.floor(Math.random() * wordList.length)
@@ -15,6 +15,7 @@ let gameOver = false
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const msg = document.querySelector('#message')
 const tiles = document.querySelectorAll('.tile')
+const rstBtn = document.querySelector('#reset-button')
 
 document.addEventListener('keydown', function(event){
    const key = event.key.toUpperCase() 
@@ -34,6 +35,17 @@ document.addEventListener('keydown', function(event){
     }
 
 
+})
+
+ rstBtn.addEventListener('click', function(){
+    msg.textContent = 'Game messages will appear here!'
+    tiles.forEach(function(boxes){
+        boxes.textContent = ''
+        boxes.classList.remove('correct-color', 'wrong-color', 'almost-color')
+        currentRow = 0
+        randIndex = Math.floor(Math.random() * wordList.length)
+    })
+    // gameOver = true
 })
 
 // The first if statement in this function listens to when the user inputs a key that is only an alphabet, it checks if its an alphabet or not through the alphabet constant I made. Then it checks if the tile has less than 5 letters and if the game is still going, if so, then add any letter the user inputs into the next tile.
@@ -105,7 +117,7 @@ function addLetter(pressedKey){
         }
         else{
         console.log(currentGuess)
-        if(currentRow === 5 && currentGuess !== answer){    
+        if(currentRow === 5){    
             msg.textContent = `You Lose. The hidden word is: ${answer}`
             gameOver = true
         }
