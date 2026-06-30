@@ -105,11 +105,19 @@ function addLetter(pressedKey){
         }
         else{
         console.log(currentGuess)
+        if(currentRow === 5 && currentGuess !== answer){    
+            msg.textContent = `You Lose. The hidden word is: ${answer}`
+            gameOver = true
+        }
+        else{
         currentRow++
         console.log(`current row should be: ${currentRow}`)
         console.log(`current guess should be: ${currentGuess}`)
         currentGuess = ''
         }
+
+        }
+         
     }
 
 
