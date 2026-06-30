@@ -1,9 +1,9 @@
 const wordList = 
 [
-    'PLANT'
+    'PLANT', 'APPLE', 'HUMID'
 ]
 
-const randIndex = Math.floor(Math.random() * wordList.length)
+let randIndex = Math.floor(Math.random() * wordList.length)
 
 let answer = wordList[randIndex]
 // made a word list to choose from, then randIndex randomizes through the array's index, math.floor is to erase decimals, then the answer is chosen with the answer variable, print out the word from the array of this [randIndex] randomized index
@@ -21,6 +21,7 @@ document.addEventListener('keydown', function(event){
    const key = event.key.toUpperCase() 
 
     if(alphabet.includes(key) && currentGuess.length < 5 && gameOver === false){
+        msg.textContent = 'Game messages will appear here!'
     addLetter(key)
     }
    
@@ -30,7 +31,12 @@ document.addEventListener('keydown', function(event){
     }
 
     if(key === 'ENTER' && currentGuess.length === 5 && gameOver === false) {
+        // msg.textContent = 'Game messages will appear here!'
         submitGuess()
+        
+    }
+    else if(key === 'ENTER' && currentGuess.length < 5 && gameOver === false){
+        msg.textContent = 'Please enter a 5-letter word!'
         
     }
 
@@ -39,13 +45,16 @@ document.addEventListener('keydown', function(event){
 
  rstBtn.addEventListener('click', function(){
     msg.textContent = 'Game messages will appear here!'
+    currentRow = 0
+    currentGuess = ''
+    randIndex = Math.floor(Math.random() * wordList.length)
+    answer = wordList[randIndex] 
     tiles.forEach(function(boxes){
         boxes.textContent = ''
         boxes.classList.remove('correct-color', 'wrong-color', 'almost-color')
-        currentRow = 0
-        randIndex = Math.floor(Math.random() * wordList.length)
     })
-    // gameOver = true
+    gameOver = false
+    console.log(answer)
 })
 
 // The first if statement in this function listens to when the user inputs a key that is only an alphabet, it checks if its an alphabet or not through the alphabet constant I made. Then it checks if the tile has less than 5 letters and if the game is still going, if so, then add any letter the user inputs into the next tile.
