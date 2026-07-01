@@ -134,5 +134,18 @@ h1{
   color: #1d1d1d
 }
 
+.key-correct {
+  background-color: rgb(24, 145, 24);
+  
+}
+
+.key-almost {
+  background-color: rgb(174, 174, 0);
+}
+
+.key-wrong {
+  background-color: rgb(63, 63, 63);
+}
+
 
 

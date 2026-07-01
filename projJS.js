@@ -25,14 +25,14 @@ showAttempt()
 
 // Event Listeners
 document.addEventListener('keydown', function(event){
-   const key = event.key.toUpperCase()
-    handleKey(key)
+   const physicalKey = event.key.toUpperCase()
+    handleKey(physicalKey)
 })
 
    keybrdBtns.forEach(function(clickedKey){
     clickedKey.addEventListener('click', function(){
-        const key = clickedKey.textContent.toUpperCase()
-        handleKey(key)
+        const virtualKey = clickedKey.textContent.toUpperCase()
+        handleKey(virtualKey)
         clickedKey.blur()
     })
 
@@ -47,6 +47,10 @@ document.addEventListener('keydown', function(event){
         boxes.textContent = ''
         boxes.classList.remove('correct-color', 'wrong-color', 'almost-color', 'flip')
     })
+    keybrdBtns.forEach(function(button) {
+    button.classList.remove('key-correct', 'key-almost', 'key-wrong')
+})
+    gameOver = false
     showAttempt()
     rstBtn.blur()
 })
@@ -60,6 +64,9 @@ document.addEventListener('keydown', function(event){
         boxes.textContent = ''
         boxes.classList.remove('correct-color', 'wrong-color', 'almost-color', 'flip')
     })
+    keybrdBtns.forEach(function(button) {
+    button.classList.remove('key-correct', 'key-almost', 'key-wrong')
+})
     gameOver = false
     replayBtn.classList.add('hide-button')
     showAttempt()
@@ -113,6 +120,7 @@ function addLetter(pressedKey){
         if (currentGuess[i] === answer[i]) {
             const tileIndex = currentRow * 5 + i
             tiles[tileIndex].classList.add('correct-color')
+            updateKeyboardColor(currentGuess[i], 'key-correct')
             // mark answer as used
             remainingLetters[i] = ''
         }
@@ -126,11 +134,13 @@ function addLetter(pressedKey){
                 if(foundIndex !== -1){
                     const tileIndex = currentRow * 5 + i
                     tiles[tileIndex].classList.add('almost-color')
+                    updateKeyboardColor(currentGuess[i], 'key-almost')
                     remainingLetters[foundIndex] = ''
                 }
                 else{
                     const tileIndex = currentRow * 5 + i
                     tiles[tileIndex].classList.add('wrong-color')
+                    updateKeyboardColor(currentGuess[i], 'key-wrong')
             }
         }
              
@@ -201,6 +211,36 @@ function handleKey(key){
     }
 }
 
+function updateKeyboardColor(letter, colorClass) {
+    keybrdBtns.forEach(function(button) {
+        if (button.textContent === letter) {
+
+            // Green cannot be replaced by a weaker color
+            if (button.classList.contains('key-correct')) {
+                return
+            }
+
+            if (colorClass === 'key-correct') {
+                button.classList.remove('key-almost', 'key-wrong')
+                button.classList.add('key-correct')
+            }
+
+            else if (colorClass === 'key-almost') {
+                button.classList.remove('key-wrong')
+                button.classList.add('key-almost')
+            }
+
+            else if (
+                colorClass === 'key-wrong' &&
+                button.classList.contains('key-almost') === false
+            ) {
+                button.classList.add('key-wrong')
+            }
+        }
+    })
+}
+
+ 
 // ----------------------------------------------------------------------
 
 
