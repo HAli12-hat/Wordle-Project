@@ -16,6 +16,7 @@ const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const msg = document.querySelector('#message')
 const tiles = document.querySelectorAll('.tile')
 const rstBtn = document.querySelector('#reset-button')
+const replayBtn = document.querySelector('#replay-button')
 
 showAttempt()
 
@@ -59,6 +60,21 @@ document.addEventListener('keydown', function(event){
     })
     showAttempt()
     rstBtn.blur()
+})
+
+    replayBtn.addEventListener('click', function(){
+    currentRow = 0
+    currentGuess = ''
+    randIndex = Math.floor(Math.random() * wordList.length)
+    answer = wordList[randIndex] 
+    tiles.forEach(function(boxes){
+        boxes.textContent = ''
+        boxes.classList.remove('correct-color', 'wrong-color', 'almost-color', 'flip')
+    })
+    gameOver = false
+    replayBtn.classList.add('hide-button')
+    showAttempt()
+    replayBtn.blur()
     // blur removes the focus on the reset button so everytime user presses Enter the reset button doesn't keep getting activated. Without it, reset button stays selected. The opposed of .blur() is .focus().
 })
 
@@ -138,12 +154,14 @@ function addLetter(pressedKey){
         flipTiles()
         if (currentGuess === answer){
             msg.textContent = 'You Win!'
+            replayBtn.classList.remove('hide-button')
             gameOver = true
         }
         else{
         console.log(currentGuess)
         if(currentRow === 5){    
             msg.textContent = `You Lose. The hidden word is: ${answer}`
+            replayBtn.classList.remove('hide-button')
             gameOver = true
         }
         else{
