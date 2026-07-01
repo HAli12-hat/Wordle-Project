@@ -51,6 +51,7 @@ document.addEventListener('keydown', function(event){
     button.classList.remove('key-correct', 'key-almost', 'key-wrong')
 })
     gameOver = false
+    replayBtn.classList.add('hide-button')
     showAttempt()
     rstBtn.blur()
 })
@@ -101,7 +102,7 @@ function addLetter(pressedKey){
        tiles[tileIndex].textContent = pressedKey
        currentGuess += pressedKey
     //    add in the next empty tile the pressed key, and update the current guess to have the pressed key at the end 
-       console.log(currentGuess)
+       
         
     }
 
@@ -109,7 +110,7 @@ function addLetter(pressedKey){
         const rmvTileIndex = currentRow * 5 + currentGuess.length - 1 
         tiles[rmvTileIndex].textContent = ''
         currentGuess = currentGuess.substring(0, currentGuess.length -1)
-        console.log(currentGuess)
+        
     }
 
 
@@ -159,7 +160,6 @@ function addLetter(pressedKey){
             gameOver = true
         }
         else{
-        console.log(currentGuess)
         if(currentRow === 5){    
             msg.textContent = `You Lose. The hidden word is: ${answer}`
             replayBtn.classList.remove('hide-button')
@@ -168,8 +168,6 @@ function addLetter(pressedKey){
         else{
         currentRow++
         showAttempt()
-        console.log(`current row should be: ${currentRow}`)
-        console.log(`current guess should be: ${currentGuess}`)
         currentGuess = ''
         }
 
@@ -239,8 +237,6 @@ function updateKeyboardColor(letter, colorClass) {
         }
     })
 }
-
- 
 // ----------------------------------------------------------------------
 
 
@@ -248,31 +244,7 @@ function updateKeyboardColor(letter, colorClass) {
 
     
      
-            // const tileIndex = currentRow * 5 + i
-            // tiles[tileIndex].classList.add('almost-color')
-        
-
-    
-    // if(alphabet.includes(key) && currentGuess.length < 5 && gameOver === false){
-    //    const tileIndex = currentRow * 5 + currentGuess.length
-    // //    find next empty tile using this equation
-    //    tiles[tileIndex].textContent = key
-    //    currentGuess += key
-    // //    add in the next empty tile the pressed key, and update the current guess to have the pressed key at the end 
-    //    console.log(currentGuess)
-        
-    // }
-    // 
-    //  if(key === 'ENTER' && currentGuess.length === 5 && gameOver === false) {
-        // console.log(currentGuess)
-        // currentRow++
-        // console.log(`current row should be: ${currentRow}`)
-        // console.log(`current guess should be: ${currentGuess}`)
-        // currentGuess = ''
-               
-    // }
-//  backup code 
-
+           
 
 
 
