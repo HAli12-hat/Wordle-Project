@@ -161,11 +161,11 @@ function addLetter(pressedKey){
     function flipTiles() {
     for (let i = 0; i < 5; i++) {
         const tileIndex = currentRow * 5 + i
-        // tiles[tileIndex].style.animationDelay = `${i} * 0.15${s}`
+        tiles[tileIndex].style.animationDelay = `${i * 0.2}s `
         tiles[tileIndex].classList.add('flip')
     }
 }
-// there are 5 tiles in each row so this needs to run 5 times
+// there are 5 tiles in each row so this needs to run 5 times. The animatoin delay line makes it so that with each next tile delay its flip by 0.2 seconds, so that they don't all flip at the same time. CSS can only understand that you mean 0.2 seconds if you add the s at the end on its own while the equation is in a template literal, or at least that is how i did it.
 
 
     
