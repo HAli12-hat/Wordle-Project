@@ -8,7 +8,7 @@ let randIndex = Math.floor(Math.random() * wordList.length)
 let answer = wordList[randIndex]
 // made a word list to choose from, then randIndex randomizes through the array's index, math.floor is to erase decimals, then the answer is chosen with the answer variable, print out the word from the array of this [randIndex] randomized index
 
-
+// Variables and Constants Declared
 let currentGuess = ''
 let currentRow = 0
 let gameOver = false
@@ -17,37 +17,26 @@ const msg = document.querySelector('#message')
 const tiles = document.querySelectorAll('.tile')
 const rstBtn = document.querySelector('#reset-button')
 const replayBtn = document.querySelector('#replay-button')
+const keybrdBtns = document.querySelectorAll('.kb-buttons')
+// -----------------------------------------------------------
 
+// Default message when page loads is to display the attempts.
 showAttempt()
 
+// Event Listeners
 document.addEventListener('keydown', function(event){
-   const key = event.key.toUpperCase() 
-
-    if(alphabet.includes(key) && currentGuess.length < 5 && gameOver === false){
-        showAttempt()
-        addLetter(key)
-    
-    }
-   
-
-    if (key === 'BACKSPACE' && gameOver === false && currentGuess.length > 0){
-        rmvLetter()
-    }
-
-    if(key === 'ENTER' && currentGuess.length === 5 && gameOver === false) {
-        // msg.textContent = 'Game messages will appear here!'
-        showAttempt()
-        submitGuess()
-        
-        
-    }
-    else if(key === 'ENTER' && currentGuess.length < 5 && gameOver === false){
-        msg.textContent = 'Please enter a 5-letter word!'
-        
-    }
-
-
+   const key = event.key.toUpperCase()
+    handleKey(key)
 })
+
+   keybrdBtns.forEach(function(clickedKey){
+    clickedKey.addEventListener('click', function(){
+        const key = clickedKey.textContent.toUpperCase()
+        handleKey(key)
+        clickedKey.blur()
+    })
+
+   }) 
 
  rstBtn.addEventListener('click', function(){
     currentRow = 0
@@ -77,7 +66,7 @@ document.addEventListener('keydown', function(event){
     replayBtn.blur()
     // blur removes the focus on the reset button so everytime user presses Enter the reset button doesn't keep getting activated. Without it, reset button stays selected. The opposed of .blur() is .focus().
 })
-
+// -------------------------------------------------------------------------
 // The first if statement in this function listens to when the user inputs a key that is only an alphabet, it checks if its an alphabet or not through the alphabet constant I made. Then it checks if the tile has less than 5 letters and if the game is still going, if so, then add any letter the user inputs into the next tile.
 
 // The second if statement checks if the player tries to delete letters he entered by listening to BACKSPACE, and the current guess has to not be empty. Take the same equation from before that adds the listened key, and this time it is used to find the tile that has the current guess's last letter, and clears that tile, as well as deleting the letter.
@@ -86,6 +75,8 @@ document.addEventListener('keydown', function(event){
 
 // Second loop: check if guessed letters aren't the same as the answer's, then create a constant that goes through the array of the answer, and look for an unused matching letter. IndexOf() returns -1 if the item isnt there, but if it is there (returns anything but -1), then color it yellow then replace the copy of the answer with an empty string so it is never used again. Else, color it gray.
 
+
+// Functions
 function showAttempt(){
     const attemptsLeft = 6 - currentRow
     if(attemptsLeft === 1){
@@ -184,6 +175,33 @@ function addLetter(pressedKey){
     }
 }
 // there are 5 tiles in each row so this needs to run 5 times. The animatoin delay line makes it so that with each next tile delay its flip by 0.2 seconds, so that they don't all flip at the same time. CSS can only understand that you mean 0.2 seconds if you add the s at the end on its own while the equation is in a template literal, or at least that is how i did it.
+
+function handleKey(key){
+    if(alphabet.includes(key) && currentGuess.length < 5 && gameOver === false){
+        showAttempt()
+        addLetter(key)
+    
+    }
+   
+
+    if (key === 'BACKSPACE' && gameOver === false && currentGuess.length > 0){
+        rmvLetter()
+    }
+
+    if(key === 'ENTER' && currentGuess.length === 5 && gameOver === false) {
+        // msg.textContent = 'Game messages will appear here!'
+        showAttempt()
+        submitGuess()
+        
+        
+    }
+    else if(key === 'ENTER' && currentGuess.length < 5 && gameOver === false){
+        msg.textContent = 'Please enter a 5-letter word!'
+        
+    }
+}
+
+// ----------------------------------------------------------------------
 
 
     
