@@ -1,6 +1,25 @@
 const wordList = 
 [
-    'PLANT', 'APPLE', 'HUMID'
+    'ABOUT', 'ABOVE', 'ACTOR', 'ACUTE', 'ADMIT',
+    'ADOPT', 'AFTER', 'AGAIN', 'AGENT', 'AGREE',
+    'AHEAD', 'ALARM', 'ALBUM', 'ALERT', 'ALIKE',
+    'ALIVE', 'ALLOW', 'ALONE', 'ALONG', 'ALTER',
+    'AMONG', 'ANGER', 'ANGLE', 'ANGRY', 'APPLE',
+    'APPLY', 'ARENA', 'ARGUE', 'ARISE', 'ARRAY',
+    'ASIDE', 'ASSET', 'AUDIO', 'AVOID', 'AWAKE',
+    'AWARD', 'AWARE', 'BADGE', 'BAKER', 'BASIC',
+    'BEACH', 'BEGAN', 'BEGIN', 'BELOW', 'BENCH',
+    'BLACK', 'BLAME', 'BLIND', 'BLOCK', 'BLOOD',
+    'BOARD', 'BRAIN', 'BRAVE', 'BREAD', 'BREAK',
+    'BRICK', 'BRING', 'BROAD', 'BROWN', 'BUILD',
+    'BUYER', 'CABLE', 'CARRY', 'CATCH', 'CAUSE',
+    'CHAIN', 'CHAIR', 'CHART', 'CHASE', 'CHEAP',
+    'CHECK', 'CHEST', 'CHIEF', 'CHILD', 'CLAIM',
+    'CLASS', 'CLEAN', 'CLEAR', 'CLIMB', 'CLOCK',
+    'CLOSE', 'CLOUD', 'COACH', 'COAST', 'COULD',
+    'COUNT', 'COURT', 'COVER', 'CRASH', 'CREAM',
+    'CRIME', 'CROSS', 'CROWD', 'CROWN', 'CURVE',
+    'DAILY', 'DANCE', 'HUMID', 'PLANT', 'WORLD'
 ]
 
 let randIndex = Math.floor(Math.random() * wordList.length)
