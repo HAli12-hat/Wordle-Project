@@ -55,7 +55,7 @@ document.addEventListener('keydown', function(event){
     answer = wordList[randIndex] 
     tiles.forEach(function(boxes){
         boxes.textContent = ''
-        boxes.classList.remove('correct-color', 'wrong-color', 'almost-color')
+        boxes.classList.remove('correct-color', 'wrong-color', 'almost-color', 'flip')
     })
     showAttempt()
     rstBtn.blur()
@@ -135,6 +135,7 @@ function addLetter(pressedKey){
     
     function submitGuess(){
         checkGuess()
+        flipTiles()
         if (currentGuess === answer){
             msg.textContent = 'You Win!'
             gameOver = true
@@ -156,6 +157,15 @@ function addLetter(pressedKey){
         }
          
     }
+
+    function flipTiles() {
+    for (let i = 0; i < 5; i++) {
+        const tileIndex = currentRow * 5 + i
+        // tiles[tileIndex].style.animationDelay = `${i} * 0.15${s}`
+        tiles[tileIndex].classList.add('flip')
+    }
+}
+// there are 5 tiles in each row so this needs to run 5 times
 
 
     

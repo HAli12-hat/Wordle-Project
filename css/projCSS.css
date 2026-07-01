@@ -80,3 +80,15 @@ h1{
   background-color: rgb(174, 174, 0);
   border-color: rgb(255, 255, 72);
 }
+
+@keyframes flip-tile {
+
+  0%{ transform: rotateX(0deg);}
+  50%{ transform: rotateX(90deg);}
+  100%{ transform: rotateX(0deg);}
+
+}
+
+.flip{animation: flip-tile 1.3s;}
+
+.flip-each-index{animation-delay: 0.15s;}
